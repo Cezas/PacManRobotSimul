@@ -1,11 +1,11 @@
-#include "Graph.h"
+#include "graph.h"
 #include <iostream>
 #include "coordindex.h"
 #include <ctype.h>
 
-using std::cout;
-using std::endl;
-using std::to_string;
+//using std::cout;
+//using std::endl;
+using namespace std;
 
 void Tile::setNeighbor(Tile* t, char dir) {
 	int test = tolower(dir);
@@ -177,7 +177,7 @@ vector<char> Map::wallExists(int pos1, int pos2) {
 	
 	for (int i = 0; i < neighbors.size(); i++) {
 		if (pos2 == neighbors.at(i)->getIndex())
-			return{};//if there is a connection, then return an empty vector to show there is no wall between the two
+            return vector<char>();//if there is a connection, then return an empty vector to show there is no wall between the two
 	}
 
 	return validPathsAt(pos1);
@@ -216,6 +216,7 @@ int Map::wallAhead(Ghost* g, int g_dest){
 		}
 		return g_dest;
 	}
+    //else //check
 }
 
 int Map::moveGhost(Ghost* g, Pac* p, bool corrected) {
@@ -404,7 +405,8 @@ vector<int> Map::BFS(int r1, int c1, int r2, int c2) {
 		    if (!visited[*it]) {
 				visited[*it] = true;
 				queue.push_back(*it);
-				pairs.insert({*it, parent});
+//                pairs.insert(pair<int,int>(*it, parent));
+                pairs.insert({*it, parent});
 			}
 
 			//if found the desired tile, start tracing back

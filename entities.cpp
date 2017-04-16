@@ -1,4 +1,4 @@
-#include "Entities.h"
+#include "entities.h"
 int Ghost::adjustDestination(char dir) {
 	int g_dest = -1;
 	//cout << get_rowpos() << endl << get_colpos();

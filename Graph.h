@@ -1,9 +1,10 @@
-#include "Entities.h"
+#include "entities.h"
 #include <vector>
 #include <map>
 #include <list>
 #include <iterator>
 #include <string>
+#include <cmath>
 
 using std::map;
 using std::list;
@@ -69,7 +70,7 @@ public://the constructor sets up each tile, but does not "connect" them (no neig
 		for (int i = 0; i < numOfVertices; i++) {
 			Tile insert(&p, i);
 			tiles.push_back(insert);
-			intersects[i] == false;
+			intersects[i] = false;
 		}			
 	} 
 
